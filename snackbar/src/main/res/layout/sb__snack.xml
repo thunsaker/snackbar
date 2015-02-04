@@ -5,6 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/SnackBar.SnackBar">
 
+    <ImageView
+        android:id="@+id/snackIcon"
+        style="@style/SnackBar.Icon" />
+
     <TextView
         android:id="@id/snackMessage"
         style="@style/SnackBar.Message"

@@ -102,6 +102,7 @@ public class SnackBar {
         private ColorStateList mTextColor;
         private ColorStateList mBackgroundColor;
         private int mHeight;
+        private int mIcon = 0;
 
         /**
          * Constructs a new SnackBar
@@ -273,6 +274,17 @@ public class SnackBar {
         }
 
         /**
+         * Sets the snackbar icon (This is against the Material Design guidelines, but some people may want to do it.)
+         *
+         * @param id the resource id of the icon to display
+         * @return this builder
+         */
+        public Builder withIconId(int id) {
+            mIcon = id;
+            return this;
+        }
+
+        /**
          * Shows the first message in the SnackBar
          *
          * @return the SnackBar
@@ -285,7 +297,8 @@ public class SnackBar {
                     mDuration,
                     mTextColor != null ? mTextColor : getActionTextColor(Style.DEFAULT),
                     mBackgroundColor != null ? mBackgroundColor : mContext.getResources().getColorStateList(R.color.sb__snack_bkgnd),
-                    mHeight != 0 ? mHeight : 0);
+                    mHeight != 0 ? mHeight : 0,
+                    mIcon);
 
             mSnackBar.showMessage(message);
 

@@ -4,8 +4,6 @@ import android.content.res.ColorStateList;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.github.mrengineer13.snackbar.SnackBar.Style;
-
 class Snack implements Parcelable {
 
     final String mMessage;
@@ -24,9 +22,11 @@ class Snack implements Parcelable {
 
     final int mHeight;
 
+    final int mIcon;
+
     Snack(String message, String actionMessage, int actionIcon,
                  Parcelable token, short duration, ColorStateList textColor,
-                 ColorStateList backgroundColor, int height) {
+                 ColorStateList backgroundColor, int height, int icon) {
         mMessage = message;
         mActionMessage = actionMessage;
         mActionIcon = actionIcon;
@@ -35,6 +35,7 @@ class Snack implements Parcelable {
         mBtnTextColor = textColor;
         mBackgroundColor = backgroundColor;
         mHeight = height;
+        mIcon = icon;
     }
     // reads data from parcel
     Snack(Parcel p) {
@@ -46,6 +47,7 @@ class Snack implements Parcelable {
         mBtnTextColor = p.readParcelable(p.getClass().getClassLoader());
         mBackgroundColor = p.readParcelable(p.getClass().getClassLoader());
         mHeight = p.readInt();
+        mIcon = p.readInt();
     }
 
     // writes data to parcel
@@ -58,6 +60,7 @@ class Snack implements Parcelable {
         out.writeParcelable(mBtnTextColor, 0);
         out.writeParcelable(mBackgroundColor, 0);
         out.writeInt(mHeight);
+        out.writeInt(mIcon);
     }
 
     public int describeContents() {

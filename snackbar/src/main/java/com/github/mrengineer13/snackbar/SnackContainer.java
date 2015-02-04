@@ -14,6 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mrengineer13.snackbar.SnackBar.OnVisibilityChangeListener;
@@ -188,6 +189,13 @@ class SnackContainer extends FrameLayout {
             holder.button.setVisibility(View.GONE);
         }
 
+        if(holder.snack.mIcon > 0) {
+            holder.icon.setVisibility(View.VISIBLE);
+            holder.icon.setImageResource(holder.snack.mIcon);
+        } else {
+            holder.icon.setVisibility(View.GONE);
+        }
+
         holder.button.setTextColor(holder.snack.mBtnTextColor);
         holder.snackView.setBackgroundColor(holder.snack.mBackgroundColor.getDefaultColor());
         if(holder.snack.mHeight > 0)
@@ -293,6 +301,7 @@ class SnackContainer extends FrameLayout {
         final View snackView;
         final TextView messageView;
         final TextView button;
+        final ImageView icon;
 
         final Snack snack;
         final OnVisibilityChangeListener visListener;
@@ -301,6 +310,7 @@ class SnackContainer extends FrameLayout {
             this.snackView = snackView;
             button = (TextView) snackView.findViewById(R.id.snackButton);
             messageView = (TextView) snackView.findViewById(R.id.snackMessage);
+            icon = (ImageView) snackView.findViewById(R.id.snackIcon);
 
             this.snack = snack;
             visListener = listener;
