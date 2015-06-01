@@ -45,7 +45,7 @@ class SnackContainer extends FrameLayout {
         init();
     }
 
-    SnackContainer(ViewGroup container) {
+    public SnackContainer(ViewGroup container) {
         super(container.getContext());
 
         container.addView(this, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
